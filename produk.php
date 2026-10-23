@@ -25,7 +25,8 @@ class Produk
     }
 }
 
-// Membuat object
+// Membuat object 
+// nanti produknya di commnt karena nanti jd duplicate entry
 $produk = new Produk();
 
 $produk->kode = "P001";
