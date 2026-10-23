@@ -12,7 +12,13 @@ class Produk
     // Constant
     public const PAJAK = 0.11;
 
-    // Method biasa untuk menghitung total harga
+    public function __construct($kode, $nama, $harga, $stok) {
+        $this->kode = $kode;
+        $this->nama = $nama;
+        $this->harga = $harga;
+        $this->stok = $stok;
+    }
+    // Method untuk menghitung total harga setelah pajak
     public function total()
     {
         return $this->harga + ($this->harga * self::PAJAK);
@@ -25,9 +31,8 @@ class Produk
     }
 }
 
-// Membuat object 
-// nanti produknya di commnt karena nanti jd duplicate entry
-$produk = new Produk();
+// Membuat object
+$produk = new Produk("P0001", "Laptop", 10000000, 5);
 
 $produk->kode = "P001";
 $produk->nama = "Laptop";
@@ -36,13 +41,13 @@ $produk->stok = 5;
 
 // Output
 echo "Produk: " . $produk->nama;
-echo "<br/>";
+echo "<br>";
 echo "Harga: Rp" . number_format($produk->harga, 0, ',', '.');
-echo "<br/>";
+echo "<br>";
 echo "Stok: " . $produk->stok;
-echo "<br/>";
+echo "<br>";
 echo "Pajak: " . Produk::pajak() . "%";
-echo "<br/>";
+echo "<br>";
 echo "Total Harga: Rp" . number_format($produk->total(), 0, ',', '.');
 
 ?>
