@@ -4,30 +4,31 @@
 use Praktikum\Produk;
 
 // Menghubungkan file Produk.php
-require_once 'Produk.php';
+require_once 'produk.php';
 
 // Membuat object
-$produk = new Produk("P0001", "Laptop", 10000000, 5);
+$produk = new Produk();
 
 // Mengubah nilai property
-$produk->kode = "P001";
-$produk->nama = "Laptop";
-$produk->harga = 10000000;
-$produk->stok = 5;
+$produk->setKode('P0001')
+    ->setNama('Laptop')
+    ->setHarga(10000000)
+    ->setStok(5);
 
 // Output
-echo "Produk: " . $produk->nama;
-echo "<br>";
+echo "Produk: ". $produk->getNama();
+echo "<br/>";
 
-echo "Harga: Rp" . number_format($produk->harga, 0, ',', '.');
-echo "<br>";
+echo "Harga: Rp.". $produk->getHarga();
+echo "<br/>";
 
-echo "Stok: " . $produk->stok;
-echo "<br>";
+echo "Stok: ". $produk->getStok();
+echo "<br/>";
 
-echo "Pajak: " . Produk::pajak() . "%";
-echo "<br>";
+echo "Pajak: " . $produk->pajak(). "%";
+echo "<br/>";
+echo "<br/>";
 
-echo "Total Harga: Rp" . number_format($produk->total(), 0, ',', '.');
+echo "Total Harga Setelah Pajak: Rp". $produk->total(); 
 
 ?>
